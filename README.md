@@ -44,14 +44,15 @@ Ensure that the following tools can be found in the path
 
 * Supported compiler (Visual Studio 2012 or later, MinGW-builds gcc 4.9 or later)
 * Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ]
-* Python version 2.7 or later  [ http://www.activestate.com/activepython/ ]
+* Python version 2.7 or later  [ https://www.python.org/ftp/python/2.7.17/python-2.7.17.amd64.msi ]
 * Ruby version 1.9.3 or later  [ http://rubyinstaller.org/ ]
 
 ```
 > cd qt-everywhere.5.15.2
 > mkdir build & cd build
+> cmd & vcvars64.bat
 > set CL=/MP
-> ..\configure.bat -prefix D:\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license -no-sql-sqlite2 -no-rpath -verbose -optimized-qmake -no-strip -no-separate-debug-info -qpa wayland -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples
+> ..\configure.bat -prefix D:\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests
 
 > nmake
 > nmake install
