@@ -27,8 +27,16 @@
 ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+: get current path
 set "srcpath=%~dp0"
+
+: get crrent scrite file path
+set path=%cd%
+echo %path%
+
 set "configure=%srcpath%qtbase\configure.bat"
+
+: make sure file [.\qtbase\configure.bat] is exit.
 if not exist "%configure%" (
     echo %configure% not found. Did you forget to run "init-repository"? >&2
     exit /b 1
@@ -38,6 +46,9 @@ if not exist qtbase mkdir qtbase || exit /b 1
 
 echo + cd qtbase
 cd qtbase || exit /b 1
+
+: %* is all args from command, pass to  .\qtbase\configure.bat
+: then call .\qtbase\configure.bat -top-level %*
 
 echo + %configure% -top-level %*
 call %configure% -top-level %*

@@ -1,9 +1,5 @@
-HOW TO BUILD QT5
-================
-
-   Debian
-   -----------
-
+# 构建QT5
+## Debian环境
 
 安装qtbase的依赖
 ```
@@ -33,14 +29,17 @@ export PKG_CONFIG_PATH=$QT_BUILDDIR/lib/pkgconfig:$PKG_CONFIG_PATH
 export PATH=$QT_BUILDDIR/bin:$PATH
 ```
 
+## Windows环境
 
-
-
-   Windows
-   ----------
 打开命令行提示符.
 
-Ensure that the following tools can be found in the path
+查看编译帮助 [ qtbase\config_help.txt ]
+
+```bash
+> .\configure.bat -help
+```
+
+安装依赖工具
 
 * Supported compiler (Visual Studio 2012 or later, MinGW-builds gcc 4.9 or later)
 * Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ]
@@ -53,11 +52,6 @@ Ensure that the following tools can be found in the path
 > set CL=/MP
 > ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl3\include OPENSSL_LIBDIR=D:\devtools\openssl3\lib -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests
 
-
 > nmake
 > nmake install
 ```
-
-To accelerate the bootstrap of qmake with MSVC, it may be useful to pass "-make-tool jom"
-
-on the configure command line. If you do not use jom,adding "/MP" to the CL environment variable is a good idea.
