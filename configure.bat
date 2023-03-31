@@ -31,8 +31,8 @@
 set "srcpath=%~dp0"
 
 : get crrent scrite file path
-set path=%cd%
-echo %path%
+: set path=%cd%
+: echo %path%
 
 set "configure=%srcpath%qtbase\configure.bat"
 

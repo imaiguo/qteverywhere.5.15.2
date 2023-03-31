@@ -50,8 +50,13 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > mkdir build & cd build
 > cmd & vcvars64.bat
 > set CL=/MP
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl3\include OPENSSL_LIBDIR=D:\devtools\openssl3\lib
+> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 
 > nmake
 > nmake install
+```
+
+调试版本参数
+```bash
+> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2d -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
