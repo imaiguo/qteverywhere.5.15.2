@@ -45,23 +45,25 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 * Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ]
 * Python version 2.7 or later  [ https://www.python.org/ftp/python/2.7.17/python-2.7.17.amd64.msi ]
 
+### 编译一般发布版本
+
 ```
 > cd qt-everywhere.5.15.2
 > mkdir build & cd build
 > cmd & vcvars64.bat
 > set CL=/MP
 > ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
-
+>
 > nmake
 > nmake install
 ```
 
-调试版本参数
+### 调试版本参数
 ```bash
 > ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2d -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
 
-静态版本参数
+### 静态版本参数
 ```bash
 > ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2s -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
