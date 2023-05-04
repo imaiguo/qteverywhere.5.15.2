@@ -3,11 +3,8 @@ cmake_minimum_required(VERSION 3.5)
 
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
 
-project(${APPNAME} LANGUAGES CXX)
-
-set(CMAKE_BUILD_TYPE Debug)
-
 set(APPNAME "Authorinzation")
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,6 +16,8 @@ set(CMAKE_AUTOUIC ON)
 
 # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 # set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+project(${APPNAME} LANGUAGES CXX)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
