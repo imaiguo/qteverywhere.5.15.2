@@ -1,4 +1,5 @@
 QT += widgets
+CONFIG += console
 requires(qtConfig(listview))
 
 HEADERS       = randomlistmodel.h

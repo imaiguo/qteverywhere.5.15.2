@@ -101,5 +101,5 @@ void MapZoom::chooseJakarta()
 
 void MapZoom::aboutOsm()
 {
-    QDesktopServices::openUrl(QUrl("http://www.openstreetmap.org"));
+    QDesktopServices::openUrl(QUrl("https://www.amap.com/"));
 }

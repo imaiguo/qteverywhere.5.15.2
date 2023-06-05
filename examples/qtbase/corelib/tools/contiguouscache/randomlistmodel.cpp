@@ -49,6 +49,7 @@
 ****************************************************************************/
 #include "randomlistmodel.h"
 #include <QRandomGenerator>
+#include <qDebug>
 
 static const int bufferSize(500);
 static const int lookAhead(100);
@@ -76,6 +77,7 @@ QVariant RandomListModel::data(const QModelIndex &index, int role) const
 
     int row = index.row();
 
+    // qDebug() << row;
     if (row > m_rows.lastIndex()) {
         if (row - m_rows.lastIndex() > lookAhead)
             cacheRows(row-halfLookAhead, qMin(m_count, row+halfLookAhead));
@@ -93,6 +95,7 @@ QVariant RandomListModel::data(const QModelIndex &index, int role) const
 
 void RandomListModel::cacheRows(int from, int to) const
 {
+    qDebug() << "from:" << from << " -> "<< to;
     for (int i = from; i <= to; ++i)
         m_rows.insert(i, fetchRow(i));
 }
@@ -101,6 +104,7 @@ void RandomListModel::cacheRows(int from, int to) const
 //![1]
 QString RandomListModel::fetchRow(int position) const
 {
-    return QString::number(QRandomGenerator::global()->bounded(++position));
+    // return QString::number(QRandomGenerator::global()->bounded(++position));
+    return QString::number(++position);
 }
 //![1]
