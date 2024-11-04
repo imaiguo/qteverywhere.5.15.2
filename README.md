@@ -1,12 +1,21 @@
-# 构建QT5
-## Debian环境
+# QT5
 
-安装qtbase的依赖
+## 依赖项
+
+1. Perl
+
+2. Python2.7
+
+3. python3.12
+
+## 一、Debian环境
+
+### 安装qtbase的依赖
 ```
 $ sudo apt build-dep qtbase-opensource-src
 ```
 
-配置准备
+### 配置准备
 ```
 $ cd qt-everywhere.5.15.2
 
@@ -19,7 +28,7 @@ $ make -j `nproc`
 $ make install
 ```
 
-为应用编译准备环境
+### 为应用编译准备环境
 ```
 export QT_BUILDDIR=/opt/qt/qteverywhere.5.15.2
 export LD_LIBRARY_PATH=$QT_BUILDDIR/lib:$LD_LIBRARY_PATH
@@ -29,9 +38,7 @@ export PKG_CONFIG_PATH=$QT_BUILDDIR/lib/pkgconfig:$PKG_CONFIG_PATH
 export PATH=$QT_BUILDDIR/bin:$PATH
 ```
 
-## Windows环境
-
-打开命令行提示符.
+## 二、Windows Build with MSVC
 
 查看编译帮助 [ qtbase\config_help.txt ]
 
@@ -39,32 +46,35 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > .\configure.bat -help
 ```
 
-安装依赖工具
-
 * Supported compiler (Visual Studio 2012 or later, MinGW-builds gcc 4.9 or later)
 * Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ]
+We recommend Strawberry Perl, available from <http://strawberryperl.com/>  
+via <https://platform.activestate.com/ActiveState> and then download it.  
+
 * Python version 2.7 or later  [ https://www.python.org/ftp/python/2.7.17/python-2.7.17.amd64.msi ]
 
-### 编译一般发布版本
-
+### 编译Release
 ```
-> cd qt-everywhere.5.15.2
+> cmd
 > mkdir build & cd build
-> cmd & vcvars64.bat
+> "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 > set CL=/MP
 > ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
->
 > nmake
 > nmake install
 ```
 
-### 调试版本参数
+### 调试Debug
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2d -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
+> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
 ```
 
-### 静态版本参数
+### 编译Static Release
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2s -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
+> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2\static -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
 
+### 编译Static Debug
+```bash
+> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2\static -debug -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
+```

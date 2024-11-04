@@ -1,4 +1,3 @@
 build
-buildd
-builds
 .vscode
+qtbase/src/android/templates/.gradle/
