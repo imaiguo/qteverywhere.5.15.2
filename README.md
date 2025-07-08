@@ -1,14 +1,8 @@
-# QT5
+# QT5.15.2
 
 ## 依赖项
 
-1. Perl
-
-2. Python2.7
-
-3. python3.12
-
-## 一、Debian环境
+## 1. Debian环境
 
 ### 安装qtbase的依赖
 ```
@@ -38,20 +32,17 @@ export PKG_CONFIG_PATH=$QT_BUILDDIR/lib/pkgconfig:$PKG_CONFIG_PATH
 export PATH=$QT_BUILDDIR/bin:$PATH
 ```
 
-## 二、Windows Build with MSVC
+## 2. Windows Build with MSVC
 
 查看编译帮助 [ qtbase\config_help.txt ]
 
 ```bash
 > .\configure.bat -help
 ```
-
-* Supported compiler (Visual Studio 2012 or later, MinGW-builds gcc 4.9 or later)
-* Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ]
-We recommend Strawberry Perl, available from <http://strawberryperl.com/>  
-via <https://platform.activestate.com/ActiveState> and then download it.  
-
-* Python version 2.7 or later  [ https://www.python.org/ftp/python/2.7.17/python-2.7.17.amd64.msi ]
+## 
+- Supported compiler (Visual Studio 2012 or later, MinGW-builds gcc 4.9 or later)
+- Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ] We recommend Strawberry Perl, available from <http://strawberryperl.com/> 
+- Python version 2.7 or later  [ https://www.python.org/ftp/python/2.7.17/python-2.7.17.amd64.msi ]
 
 ### 编译Release
 ```
