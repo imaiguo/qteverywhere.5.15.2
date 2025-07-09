@@ -39,7 +39,7 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 ```bash
 > .\configure.bat -help
 ```
-## 
+##
 - Supported compiler (Visual Studio 2012 or later, MinGW-builds gcc 4.9 or later)
 - Perl version 5.12 or later   [ http://www.activestate.com/activeperl/ ] We recommend Strawberry Perl, available from <http://strawberryperl.com/> 
 - Python version 2.7 or later  [ https://www.python.org/ftp/python/2.7.17/python-2.7.17.amd64.msi ]
@@ -50,22 +50,24 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > mkdir build & cd build
 > "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 > set CL=/MP
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 > nmake
 > nmake install
 ```
 
 ### 调试Debug
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2 -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
 ```
 
 ### 编译Static Release
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2\static -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
 
 ### 编译Static Debug
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt\qteverywhere.5.15.2\static -debug -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -debug -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
 ```
+
+## 源码下载 [https://download.qt.io/]
