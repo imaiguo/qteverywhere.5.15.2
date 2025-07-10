@@ -72,5 +72,13 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
 
+### 为应用编译准备环境
+```bash
+> set QT_BUILDDIR=D:\devtools\Qt.5.15.2
+> set LD_LIBRARY_PATH=%QT_BUILDDIR%\lib;%LD_LIBRARY_PATH%
+> set QT_QPA_PLATFORM_PLUGIN_PATH=%QT_BUILDDIR%\plugins\platforms
+> set QT_PLUGIN_PATH=%QT_BUILDDIR%\plugin
+> set PKG_CONFIG_PATH=%QT_BUILDDIR%\lib\pkgconfig;%PKG_CONFIG_PATH%
+```
 
 ## 源码下载 [https://download.qt.io/]
