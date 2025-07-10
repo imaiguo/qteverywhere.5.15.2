@@ -58,19 +58,14 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > nmake install
 ```
 
-### 编译Release
+### 编译动态库版
 ```
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
-```
-
-### 编译Static Debug
-```bash
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug-and-release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 ```
 
-### 编译Static Release
+### 编译Static
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug-and-release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 ```
 
 ### 为应用编译准备环境
