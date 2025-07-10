@@ -52,7 +52,7 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > mkdir build & cd build
 > "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 > set CL=/MP
-> set Path=D:\devtools\Strawberry\perl\bin;D:\devtools\Python.2.7.17;%Path%
+> set Path=D:\devtools\Strawberry\perl\bin;D:\devtools\Python.2.7.17;D:\workspace\qteverywhere.5.15.2\qtwebengine\tools\nodejs;%Path%
 > ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug-and-release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 > nmake
 > nmake install
