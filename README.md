@@ -52,24 +52,25 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 > mkdir build & cd build
 > "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 > set CL=/MP
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
+> set Path=D:\devtools\Strawberry\perl\bin;D:\devtools\Python.2.7.17;%Path%
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 > nmake
 > nmake install
 ```
 
 ### 编译Release
 ```
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 ```
 
 ### 编译Static Debug
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -debug -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -debug -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 ```
 
 ### 编译Static Release
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -no-separate-debug-info -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -release -static -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\debug\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\debug\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 ```
 
 ### 为应用编译准备环境
