@@ -5,10 +5,10 @@
 #include <QLineEdit>
 #include <QFile>
 
-#include "mainwindow.h"
-#include "machineid/GetCpuIndex.h"
-#include "netservice/DownloadManager.h"
-#include "netservice/AuthHttpRequest.h"
+#include "MainWindow.h"
+#include "GetCpuIndex.h"
+#include "DownloadManager.h"
+#include "AuthHttpRequest.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent){

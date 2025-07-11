@@ -65,11 +65,14 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 
 ### 为应用编译准备环境
 ```bash
-> set QT_BUILDDIR=D:\devtools\Qt.5.15.2
-> set LD_LIBRARY_PATH=%QT_BUILDDIR%\lib;%LD_LIBRARY_PATH%
-> set QT_QPA_PLATFORM_PLUGIN_PATH=%QT_BUILDDIR%\plugins\platforms
-> set QT_PLUGIN_PATH=%QT_BUILDDIR%\plugin
-> set PKG_CONFIG_PATH=%QT_BUILDDIR%\lib\pkgconfig;%PKG_CONFIG_PATH%
+>
+set QT_BUILDDIR=D:\devtools\Qt.5.15.2
+set LD_LIBRARY_PATH=%QT_BUILDDIR%\lib;%LD_LIBRARY_PATH%
+set QT_QPA_PLATFORM_PLUGIN_PATH=%QT_BUILDDIR%\plugins\platforms
+set QT_PLUGIN_PATH=%QT_BUILDDIR%\plugin
+set PKG_CONFIG_PATH=%QT_BUILDDIR%\lib\pkgconfig;%PKG_CONFIG_PATH%
+set Path=%QT_BUILDDIR%\bin;D:\devtools\openssl.3.0.8\bin;%Path%
+>
 ```
 
 ## 源码下载 [https://download.qt.io/]
