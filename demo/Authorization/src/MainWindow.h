@@ -1,6 +1,6 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 
 #include <QMainWindow>
 #include <QNetworkReply>
@@ -13,13 +13,12 @@ class AuthHttpRequest;
 class NetworkError;
 
 /*
-1 在线激活                         V
+1 在线激活
 2 导出机器码
 3 日志写入读取类
 4 自动升级线程
 */
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -27,6 +26,7 @@ public:
     ~MainWindow();
 
     void initUI();
+    void init();
 
 private:
     void addConnections();

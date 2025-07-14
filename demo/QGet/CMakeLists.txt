@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.31)
 
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
 
-set(CMAKE_BUILD_TYPE Debug)
-set(APPNAME "Authorinzation")
+set(CMAKE_BUILD_TYPE Release)
+set(APPNAME "QGet")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -22,17 +22,12 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS network REQUIRED)
 message("current Qt version is[" ${QT_VERSION_MAJOR}  "]")
 
 set(SRC
-        ./src/MainWindow.cc
-        ./src/Main.cc
+        ./src/Main.cpp
         ./src/DownloadManager.cc
-        ./src/AuthHttpRequest.cc
 )
-
-set(SOURCE ./authorization.qrc)
 
 add_executable(${APPNAME}
     ${SRC}
-    ${SOURCE}
 )
 
 target_link_libraries(${APPNAME} PRIVATE

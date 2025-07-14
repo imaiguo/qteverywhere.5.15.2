@@ -7,7 +7,6 @@
 #include "floatwidget_linux.h"
 #endif
 
-
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
@@ -22,7 +21,6 @@ int main(int argc, char *argv[])
 	FlaotWidget_Linux* floatWidget = new FlaotWidget_Linux();
 	floatWidget->show();
 #endif
-
 
 	// MainWindow w;
 	floatWidget->show();

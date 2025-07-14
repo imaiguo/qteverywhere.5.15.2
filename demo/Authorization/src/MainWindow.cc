@@ -6,12 +6,10 @@
 #include <QFile>
 
 #include "MainWindow.h"
-#include "GetCpuIndex.h"
 #include "DownloadManager.h"
 #include "AuthHttpRequest.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent){
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
     setFixedSize(800,400);
 
     manager =  new DownloadManager();
@@ -27,8 +25,7 @@ MainWindow::~MainWindow(){
 }
 
 
-void MainWindow::initUI()
-{
+void MainWindow::initUI(){
     int xpos=30, ypox=30;
     m_btnAutoActivate = new QPushButton(this);
     m_btnAutoActivate->move(xpos,ypox);
@@ -77,6 +74,9 @@ void MainWindow::initUI()
     m_Url->setFixedSize(500,30);
     m_Url->show();
     m_Url->setText("https://shop.uniontech.tech:8000/main/v1/versionpush");
+}
+
+void MainWindow::init(){
     addConnections();
     checkSSl();
 }
@@ -100,7 +100,7 @@ void MainWindow::addConnections(){
 }
 
 void MainWindow::onActivated(bool b){
-    m_txtShow->append(u8"获取到CPU序列号:" + QString(GWTools::GetCpuIndex().c_str()));
+    // m_txtShow->append(u8"获取到CPU序列号:" + QString(GWTools::GetCpuIndex().c_str()));
 
     qDebug()<<m_Url->text();
     auth->Auth(m_Url->text());
@@ -153,8 +153,7 @@ void MainWindow::onVersionPush(){
 }
 
 
-void MainWindow::sslErrors(const QList<QSslError> &sslErrors)
-{
+void MainWindow::sslErrors(const QList<QSslError> &sslErrors){
 #if QT_CONFIG(ssl)
     for (const QSslError &error : sslErrors){
         fprintf(stderr, "SSL error: %s\n", qPrintable(error.errorString()));

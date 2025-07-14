@@ -20,16 +20,16 @@ class DownloadManager: public QObject
 public:
     DownloadManager();
     void doDownload(const QUrl &url);
-    static QString saveFileName(const QUrl &url);
+    QString saveFileName(const QUrl &url);
     bool saveToDisk(const QString &filename, QIODevice *data);
-    static bool isHttpRedirect(QNetworkReply *reply);
-    static void setPath(const QString dir);
-    static const QString getPath();
+    bool isHttpRedirect(QNetworkReply *reply);
+    void setPath(const QString dir);
+    const QString getPath();
 
 public slots:
     void downloadFinished(QNetworkReply *reply);
     void sslErrors(const QList<QSslError> &errors);
 
-public:
-    static QString m_path;
+private:
+    QString m_path;
 };

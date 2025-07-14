@@ -1,9 +1,9 @@
+
 #include "DownloadManager.h"
 
 QString DownloadManager::m_path;
 
-DownloadManager::DownloadManager()
-{
+DownloadManager::DownloadManager(){
     connect(&manager, SIGNAL(finished(QNetworkReply*)), SLOT(downloadFinished(QNetworkReply*)));
 }
 
@@ -15,8 +15,7 @@ const QString DownloadManager::getPath(){
     return m_path;
 }
 
-void DownloadManager::doDownload(const QUrl &url)
-{
+void DownloadManager::doDownload(const QUrl &url){
     QNetworkRequest request(url);
     QNetworkReply *reply = manager.get(request);
 
@@ -28,8 +27,7 @@ void DownloadManager::doDownload(const QUrl &url)
     currentDownloads.append(reply);
 }
 
-QString DownloadManager::saveFileName(const QUrl &url)
-{
+QString DownloadManager::saveFileName(const QUrl &url){
     QString path = url.path();
     QString basename = QFileInfo(path).fileName();
 
@@ -46,8 +44,7 @@ QString DownloadManager::saveFileName(const QUrl &url)
     return basename;
 }
 
-bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data)
-{
+bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data){
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly)) {
         fprintf(stderr, "Could not open %s for writing: %s\n",
@@ -61,16 +58,13 @@ bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data)
     return true;
 }
 
-bool DownloadManager::isHttpRedirect(QNetworkReply *reply)
-{
+bool DownloadManager::isHttpRedirect(QNetworkReply *reply){
     int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     return statusCode == 301 || statusCode == 302 || statusCode == 303
            || statusCode == 305 || statusCode == 307 || statusCode == 308;
 }
 
-
-void DownloadManager::sslErrors(const QList<QSslError> &sslErrors)
-{
+void DownloadManager::sslErrors(const QList<QSslError> &sslErrors){
 #if QT_CONFIG(ssl)
     for (const QSslError &error : sslErrors)
         fprintf(stderr, "SSL error: %s\n", qPrintable(error.errorString()));

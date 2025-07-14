@@ -1,3 +1,4 @@
+
 #include <QApplication>
 #include <QWebEngineView>
 #include <QSurfaceFormat>
@@ -5,8 +6,7 @@
 #include <QOffscreenSurface>
 #include <iostream>
 
-QUrl commandLineUrlArgument()
-{
+QUrl commandLineUrlArgument(){
     const QStringList args = QCoreApplication::arguments();
     for (const QString &arg : args.mid(1)) {
         if (!arg.startsWith(QLatin1Char('-')))
@@ -15,9 +15,7 @@ QUrl commandLineUrlArgument()
     return QUrl(QStringLiteral("https://www.sina.com.cn"));
 }
 
-
-bool OGLSupports(int major, int minor, bool gles = false, QSurfaceFormat::OpenGLContextProfile profile = QSurfaceFormat::NoProfile)
-{
+bool OGLSupports(int major, int minor, bool gles = false, QSurfaceFormat::OpenGLContextProfile profile = QSurfaceFormat::NoProfile){
     QOpenGLContext ctx;
     QSurfaceFormat fmt;
     fmt.setVersion(major, minor);
@@ -47,8 +45,7 @@ bool OGLSupports(int major, int minor, bool gles = false, QSurfaceFormat::OpenGL
 }
 
 
-void printSupport()
-{
+void printSupport(){
     std::cout<< "Support for GL 2.0 noprof "<<( OGLSupports(2,0,false) ? "yes" : "no")<<std::endl;
     std::cout<< "Support for GL 2.0 core   "<<( OGLSupports(2,0,false, QSurfaceFormat::CoreProfile) ? "yes" : "no")<<std::endl;
     std::cout<< "Support for GL 2.0 compat "<<( OGLSupports(2,0,false, QSurfaceFormat::CompatibilityProfile) ? "yes" : "no")<<std::endl;
@@ -84,8 +81,7 @@ void printSupport()
 }
 
 
-bool isSupportOpenGL()
-{
+bool isSupportOpenGL(){
     QOpenGLContext ctx;
     QSurfaceFormat fmt;
     fmt.setRenderableType(QSurfaceFormat::OpenGL);
@@ -98,8 +94,7 @@ bool isSupportOpenGL()
     return (ctx.format().renderableType() == QSurfaceFormat::OpenGL);
 }
 
-bool isSupportOpenGLES()
-{
+bool isSupportOpenGLES(){
     QOpenGLContext ctx;
     QSurfaceFormat fmt;
     fmt.setRenderableType(QSurfaceFormat::OpenGLES);
@@ -112,8 +107,7 @@ bool isSupportOpenGLES()
     return (ctx.format().renderableType() == QSurfaceFormat::OpenGLES);
 }
 
-bool setOpenGL()
-{
+bool setOpenGL(){
     if(isSupportOpenGL())
     {
         std::cout<<"---SupportOpenGL---"<<std::endl;
@@ -130,19 +124,16 @@ bool setOpenGL()
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     printSupport();
-    if(!setOpenGL())
-    {
+    if(!setOpenGL()){
         std::cout<<"Error:OpenGL isn't supperted,exit..."<<std::endl;
         return -1;
     }
 
-   if(isSupportOpenGLES())
-   {
+   if(isSupportOpenGLES()){
 	qputenv("QT_WAYLAND_SHELL_INTEGRATION", "kwayland-shell");
        QSurfaceFormat format;
        format.setRenderableType(QSurfaceFormat::OpenGLES);

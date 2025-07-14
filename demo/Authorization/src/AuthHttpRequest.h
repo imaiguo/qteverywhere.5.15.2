@@ -1,3 +1,4 @@
+
 #pragma once
 #include <QtCore>
 #include <QtNetwork>
@@ -19,7 +20,6 @@ public slots:
 
 private:
     void Init();
-
 
 signals:
     void AuthResult(QString res);

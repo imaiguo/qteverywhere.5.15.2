@@ -1,11 +1,12 @@
+
 #include "DownloadManager.h"
 
-QString DownloadManager::m_path;
+#include <QDebug>
+#include <QDir>
 
 DownloadManager::DownloadManager()
 {
-    connect(&manager, SIGNAL(finished(QNetworkReply*)),
-            SLOT(downloadFinished(QNetworkReply*)));
+    connect(&manager, SIGNAL(finished(QNetworkReply*)), SLOT(downloadFinished(QNetworkReply*)));
 }
 
 void DownloadManager::setPath(const QString dir){
@@ -13,6 +14,17 @@ void DownloadManager::setPath(const QString dir){
 }
 
 const QString DownloadManager::getPath(){
+    if(m_path.length() > 1)
+        return m_path;
+    
+    QString exePath = QCoreApplication::applicationDirPath();
+    exePath.append("/Down");
+    qDebug() << "exePath - ["<< exePath<<"]";
+    QDir DirPath(exePath);
+    if (!DirPath.exists())
+        DirPath.mkdir(exePath);
+    m_path = exePath;
+
     return m_path;
 }
 
@@ -22,8 +34,7 @@ void DownloadManager::doDownload(const QUrl &url)
     QNetworkReply *reply = manager.get(request);
 
 #if QT_CONFIG(ssl)
-    connect(reply, SIGNAL(sslErrors(QList<QSslError>)),
-            SLOT(sslErrors(QList<QSslError>)));
+    connect(reply, SIGNAL(sslErrors(QList<QSslError>)), SLOT(sslErrors(QList<QSslError>)));
 #endif
 
     currentDownloads.append(reply);
@@ -36,11 +47,6 @@ QString DownloadManager::saveFileName(const QUrl &url)
 
     if (basename.isEmpty())
         basename = "download";
-
-    if(getPath().isEmpty()){
-        setPath(QDir::currentPath());
-        qDebug()<<"file save path is ["<<getPath()<<"].";
-    }
 
     basename = getPath() + "/" + basename;
 
