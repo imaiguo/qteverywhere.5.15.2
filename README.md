@@ -1,3 +1,4 @@
+
 # QT5.15.2
 
 ## 依赖项
@@ -5,7 +6,8 @@
 ## 1. Debian环境
 
 ### 安装qtbase的依赖
-```
+
+```bash
 $ sudo apt build-dep qtbase-opensource-src
 ```
 
@@ -49,22 +51,27 @@ export PATH=$QT_BUILDDIR/bin:$PATH
 ### 编译动态库
 ```bash
 > cmd
-> mkdir build & cd build
+> mkdir buildqt & cd buildqt
 > "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 > set CL=/MP
-> set Path=D:\devtools\Strawberry\perl\bin;D:\devtools\Python.2.7.17;D:\workspace\qteverywhere.5.15.2\qtwebengine\tools\nodejs;%Path%
+> set Path=D:\devtools\Strawberry\perl\bin;D:\devtools\Python.2.7.17;D:\devtools\openssl.3.0.8\bin;D:\workspace\qteverywhere.5.15.2\qtwebengine\tools\nodejs;%Path%
 > ..\configure.bat -prefix D:\devtools\Qt.5.15.2 -shared -debug-and-release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
 > nmake
 > nmake install
 ```
 
 ### 编译静态库
+
+- 官方指出不支持qtwebengine静态编译 Static builds are not supported. [https://doc.qt.io/archives/qt-5.15/qtwebengine-platform-notes.html]
+
 ```bash
-> ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -static -debug-and-release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib -proprietary-codecs -webengine-jumbo-build 0 -webengine-kerberos
+> ..\configure.bat -prefix D:\devtools\Qt.5.15.2\static -static -debug-and-release -opensource -confirm-license  -no-sql-sqlite2 -no-rpath -verbose -no-strip -accessibility -no-directfb -no-use-gold-linker -recheck-all -nomake examples -nomake tests -skip qtwebengine -openssl-linked OPENSSL_INCDIR=D:\devtools\openssl.3.0.8\include OPENSSL_LIBDIR=D:\devtools\openssl.3.0.8\lib
 ```
 
 ### 为应用编译准备环境
 ```bash
+>
+> "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 >
 set QT_BUILDDIR=D:\devtools\Qt.5.15.2
 set LD_LIBRARY_PATH=%QT_BUILDDIR%\lib;%LD_LIBRARY_PATH%
@@ -76,3 +83,7 @@ set Path=%QT_BUILDDIR%\bin;D:\devtools\openssl.3.0.8\bin;%Path%
 ```
 
 ## 源码下载 [https://download.qt.io/]
+
+## 官方文档 [https://doc.qt.io/archives/qt-5.15/qtwebengine-index.html]
+
+## 版本列表 [https://doc.qt.io/archives/]

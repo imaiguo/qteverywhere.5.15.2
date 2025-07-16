@@ -1,19 +1,19 @@
-#include "CRoundLabel.h"
 
-CRoundLabel::CRoundLabel(QWidget* parent) : QLabel(parent)
-{
+#include "RoundLabel.h"
+
+#include <QPainterPath>
+// class QPainterPath;
+
+RoundLabel::RoundLabel(QWidget* parent) : QLabel(parent){
 
 }
 
-CRoundLabel::~CRoundLabel()
-{
+RoundLabel::~RoundLabel(){
    
 }
 
-void CRoundLabel::paintEvent(QPaintEvent* e)
-{
-    if(NULL != pixmap())
-    {
+void RoundLabel::paintEvent(QPaintEvent* e){
+    if(NULL != pixmap()){
        QPainter painter(this);
        painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
        QPainterPath path;
@@ -22,6 +22,6 @@ void CRoundLabel::paintEvent(QPaintEvent* e)
        painter.setClipPath(path);
        painter.drawPixmap(-1,-1,width() + 2, height() + 2, *pixmap());
     }else{
-    QLabel::paintEvent(e);    
+        QLabel::paintEvent(e);
     }    
 }

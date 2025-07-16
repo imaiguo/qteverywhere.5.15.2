@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
     setFixedSize(800,400);
 
     manager =  new DownloadManager();
-    manager->setPath(QString("D:/devtools/Qt/downfile"));
+    // manager->setPath(QString("D:/devtools/Qt/downfile"));
 
     setWindowIcon(QPixmap(":/image/favicon.png"));
 
