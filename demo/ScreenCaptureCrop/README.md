@@ -1,12 +1,16 @@
 
 
-# FloatWidget
+# 简易截图工具
 
-- 实现一个无边框窗口，支持resize和move
-
-- 平台支持windows和linux
 
 ## 配置开发运行环境
+
+```bash
+> cmd
+> "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+> set Path=D:\devtools\Qt.6.9.1\bin;D:\devtools\openssl.3.0.8\bin;%Path%
+>
+```
 
 ```bash
 > cmd
@@ -20,3 +24,10 @@ set PKG_CONFIG_PATH=%QT_BUILDDIR%\lib\pkgconfig;%PKG_CONFIG_PATH%
 set Path=%QT_BUILDDIR%\bin;D:\devtools\openssl.3.0.8\bin;%Path%
 >
 ```
+
+## 参考
+
+- https://blog.51cto.com/u_6343747/5551990
+
+- https://www.cnblogs.com/chenluyong/p/OEasyScreenshot.html + https://gitee.com/Mr_ChenLuYong/screenshot
+- https://github.com/SkyD666/SmartScreenSnapper

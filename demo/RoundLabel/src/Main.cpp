@@ -17,7 +17,7 @@ int main(int argc, char **argv){
     // img.load(path);
     // QPixmap pixmap = QPixmap::fromImage(img);
 
-    QPixmap *p1 = new QPixmap(QPixmap(":/image/favicon.png"));
+    QPixmap *p1 = new QPixmap(":/image/favicon.png");
     label.setPixmap(*p1);
 
 

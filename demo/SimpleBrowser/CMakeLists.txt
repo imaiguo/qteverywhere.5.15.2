@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.31)
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
 
 set(CMAKE_BUILD_TYPE Release)
-set(APPNAME "RoundLabel")
+set(APPNAME "SimpleBrowser")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
